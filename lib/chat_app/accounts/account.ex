@@ -2,6 +2,8 @@ defmodule ChatApp.Accounts.Account do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias ChatApp.Rooms.Room
+
   schema "accounts" do
     field :email, :string
     field :password, :string, virtual: true, redact: true
@@ -9,6 +11,8 @@ defmodule ChatApp.Accounts.Account do
     field :confirmed_at, :naive_datetime
 
     timestamps()
+
+    many_to_many(:rooms, Room, join_through: "members")
   end
 
   @doc """

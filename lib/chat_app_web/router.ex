@@ -66,6 +66,13 @@ defmodule ChatAppWeb.Router do
     get "/accounts/settings", AccountSettingsController, :edit
     put "/accounts/settings", AccountSettingsController, :update
     get "/accounts/settings/confirm_email/:token", AccountSettingsController, :confirm_email
+
+    live "/rooms", RoomLive.Index, :index
+    live "/rooms/new", RoomLive.Index, :new
+    live "/rooms/:id/edit", RoomLive.Index, :edit
+
+    live "/rooms/:id", RoomLive.Show, :show
+    live "/rooms/:id/show/edit", RoomLive.Show, :edit
   end
 
   scope "/", ChatAppWeb do

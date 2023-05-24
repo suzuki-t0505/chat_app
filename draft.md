@@ -38,3 +38,32 @@ $ mix ecto.migrate
 ```
 
 ## テーブルとスキーマの作成
+
+今回以下の図のテーブルを作成します。
+
+それでは`rooms`テーブルとスキーマを以下のコマンドで作成します。
+
+```bash
+$ mix phx.gen.live Rooms Room rooms title:string
+```
+
+※`mix phx.gen.live`の解説をする
+
+続いて`members`テーブルとスキーマを以下のコマンドで作成します。
+
+```bash
+$ mix phx.gen.schema Members Member members account_id:references:accounts room_id:references:rooms
+```
+
+`members`テーブルのマイグレーションファイルを修正します。
+
+`members`スキーマを修正します。
+
+最後に`messages`テーブルとスキーマを以下のコマンドで作成します。
+
+```bash
+$ mix phx.gen.schema Messages.Message messages message:text account_id:references:accounts room_id:references:rooms
+```
+`messages`テーブルのマイグレーションファイルを修正します。
+
+`members`スキーマを修正します。
