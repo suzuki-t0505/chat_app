@@ -55,6 +55,10 @@ defmodule ChatAppWeb.RoomLive.Show do
   end
 
   @impl true
+  def handle_event("send_message", %{"message" => %{"message" => ""}}, socket) do
+    {:noreply, socket}
+  end
+
   def handle_event("send_message", %{"message" => params}, socket) do
     params = Map.merge(params, %{"account_id" => socket.assigns.current_account.id, "room_id" => socket.assigns.room.id})
     socket =

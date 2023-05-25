@@ -76,7 +76,10 @@ defmodule ChatApp.Rooms do
       |> change_message(attrs)
       |> Repo.insert()
 
-    if {:ok, message} = insert_message, do: {:ok, Repo.preload(message, :account)}, else: insert_message
+    case insert_message do
+      {:ok, message} -> {:ok, Repo.preload(message, :account)}
+      _ -> insert_message
+    end
   end
 
   @doc """
