@@ -62,8 +62,38 @@ $ mix phx.gen.schema Members Member members account_id:references:accounts room_
 最後に`messages`テーブルとスキーマを以下のコマンドで作成します。
 
 ```bash
-$ mix phx.gen.schema Messages.Message messages message:text account_id:references:accounts room_id:references:rooms
+$ mix phx.gen.schema Messages.Message messages message:string account_id:references:accounts room_id:references:rooms
 ```
 `messages`テーブルのマイグレーションファイルを修正します。
 
 `members`スキーマを修正します。
+
+## ルームを作成する機能の修正
+
+### ルームを作成する関数に処理を追加する
+
+### ルームを作成した時にその作成したルームにリダイレクトする処理を追加する
+
+## ルームに参加する機能の作成
+
+### イベントの作成
+
+### ルームに参加する関数の作成
+
+### イベントに処理を追加する
+
+## ルームでチャットできるようにする
+
+### メッセージを送信するイベントを追加する
+
+### メッセージを作成する関数の作成
+
+### イベントに処理を追加する
+
+### テンプレートにレイアウトを追加する
+
+## Hooks
+
+### チャットのメッセージをCtr + Enterで送信できるようにする
+
+### チャットのメッセージ欄を常に一番下にスクロールした状態にする
