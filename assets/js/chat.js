@@ -19,11 +19,16 @@ hooks.key = {
 
 hooks.scroll = {
   mounted(){
-    let target = document.getElementById("scroll-box").lastElementChild
-    target.scrollIntoView(false)
+    scrollToTheBottom()
   },
   updated(){
-    let target = document.getElementById("scroll-box").lastElementChild
+    scrollToTheBottom()
+  }
+}
+
+function scrollToTheBottom(){
+  let target = document.getElementById("scroll-box").lastElementChild
+  if (target) {
     target.scrollIntoView(false)
   }
 }
